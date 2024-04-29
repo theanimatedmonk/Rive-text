@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@rive-app/canvas@latest/rive.js"></script>
+    </head>
+
+
+    <body>
+        <div class="content">
+        <div class="content-container">
+            <canvas id="rive-text"></canvas>
+        <input type="text" id="textInput" placeholder="Enter your name">
+    </div>
+</div>
+    
+    
+        <script>
+            // Function to update the text in the Rive animation
+            function updateText() {
+                const newTextValue = document.getElementById('textInput').value;
+                const r = new rive.Rive({
+                    src: 'rive-text.riv',
+                    canvas: document.getElementById('rive-text'),
+                    artboard: "rive-text-testing",
+                    autoplay: true,
+                    animations: 'Sajal',
+    
+                    onLoad: () => {
+                        console.log("My design-time text is, ", r.getTextRunValue("username"));
+                        r.setTextRunValue("username", newTextValue);
+                    },
+                });
+            }
+    
+            // Function to initialize the animation with the default text value
+            function initializeAnimation() {
+                const defaultTextValue = "username";
+                const r = new rive.Rive({
+                    src: 'rive-text.riv',
+                    canvas: document.getElementById('rive-text'),
+                    artboard: "rive-text-testing",
+                    autoplay: true,
+                    animations: 'Sajal',
+    
+                    onLoad: () => {
+                        console.log("My design-time text is, ", r.getTextRunValue("username"));
+                        r.setTextRunValue("username", defaultTextValue);
+                    },
+                });
+            }
+    
+            // Call the function to initialize the animation when the page loads
+            initializeAnimation();
+    
+            // Listen for input events on the text input field
+            document.getElementById('textInput').addEventListener('input', function() {
+                // Call the function to update the text in the animation
+                updateText();
+            });
+        </script>
+    </body>

@@ -1,0 +1,39 @@
+
+.content { margin: auto;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+#textInput{
+    width: 300px;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    padding: 12px 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #cacaca;
+}
+
+#textInput:focus {
+    border: 1px solid #5B41C4;
+    outline: 1.5px solid #5B41C4 ;
+}
+
+.content-container{
+    display: inline-flex;
+    padding: 28px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+    background: #DCD4FC;
+    margin: auto;
+
+}
+
+#rive-text{
+    width: 500px;
+}
